@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Application</h2>
+        <form id="applicationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name (Required):</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address (Required):</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth (Required):</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="program">Program Applying For (Required):</label>
+                <select id="program" name="program" required>
+                    <option value="">Select a Program</option>
+                    <option value="program1">Program 1</option>
+                    <option value="program2">Program 2</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="statementOfPurpose">Statement of Purpose:</label>
+                <textarea id="statementOfPurpose" name="statementOfPurpose"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password (Required):</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password (Required):</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
