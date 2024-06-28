@@ -31,19 +31,34 @@ if (!document.getElementById("program").value) {
 }
 
 
-    // Strong Password Validation
+// Strong Password Validation
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(document.getElementById("password").value)) {
         isValid = false;
         errorMessages.push("Password (must meet requirements)");
     }
 
-    //Password Match 
+    const passwordGroup = document.getElementById("passwordGroup");
+    const confirmPasswordGroup = document.getElementById("confirmPasswordGroup");
+    const passwordError = passwordGroup.querySelector(".error-message");
 
+    if (document.getElementById("password").value !== document.getElementById("confirmPassword").value) {
+        isValid = false;
+        passwordError.textContent = "Passwords do not match";
+    } else {
+        passwordError.textContent = "";
+    }
+    
     if (isValid) {
         alert("Application submitted successfully!");
-        this.submit(); 
+        this.submit();
     } else {
-        alert("Please fill in the following fields correctly:\n" + errorMessages.join("\n"));
     }
-});
+    
+    const inputFields = document.querySelectorAll("#applicationForm input, #applicationForm select, #applicationForm textarea");
+    inputFields.forEach(input => {
+        input.addEventListener("input", () => {
+            input.parentElement.classList.remove("error");
+            input.parentElement.querySelector(".error-message").textContent = "";
+        });
+    });

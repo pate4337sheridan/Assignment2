@@ -61,3 +61,34 @@ button[type="submit"]:hover {
     content: " (Please fill this field)";
     color: red;
 }
+
+.tooltip {
+    cursor: help; /* Change cursor on hover */
+    position: relative; /* For positioning the tooltip */
+}
+
+.tooltip::after {
+    content: attr(title);  /* Display the title attribute as tooltip text */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+    background-color: #333; /* Tooltip background color */
+    color: #fff; /* Tooltip text color */
+    padding: 5px 10px; 
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1; /* Ensure tooltip is above other elements */
+    bottom: 125%; /* Position below the tooltip icon */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    transition: opacity 0.3s; /* Smooth transition for opacity */
+}
+
+.tooltip:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+.error-message {
+    color: red;
+    display: block; /* Ensure the error message takes up its own line */
+    margin-top: 5px; /* Add some spacing between the input and the error message */
+}
